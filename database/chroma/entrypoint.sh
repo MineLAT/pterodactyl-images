@@ -26,4 +26,4 @@ echo ":/home/container$ ${FINAL_STARTUP}"
 printf "\033[1m\033[33mcontainer~ \033[0m"
 echo "$FINAL_STARTUP"
 # shellcheck disable=SC2086
-eval "$FINAL_STARTUP"
+eval $FINAL_STARTUP
