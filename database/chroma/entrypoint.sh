@@ -22,8 +22,9 @@ echo "Running ChromaDB v$CHROMA_VERSION"
 FINAL_STARTUP=$(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
 echo ":/home/container$ ${FINAL_STARTUP}"
 
-# Display the final startup command we're running in the output, and then execute it with eval
-printf "\033[1m\033[33mcontainer~ \033[0m"
-echo "$FINAL_STARTUP"
-# shellcheck disable=SC2086
+# Use token authentication by default
+export CHROMA_SERVER_AUTHN_CREDENTIALS_FILE="/home/container/authorized_keys"
+export CHROMA_SERVER_AUTHN_PROVIDER="chromadb.auth.token_authn.TokenAuthenticationServerProvider"
+export CHROMA_AUTH_TOKEN_TRANSPORT_HEADER="X-Chroma-Token"
+
 eval $FINAL_STARTUP
