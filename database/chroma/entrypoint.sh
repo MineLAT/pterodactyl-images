@@ -19,7 +19,7 @@ echo "Running ChromaDB v$CHROMA_VERSION"
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
 # variable format of "${VARIABLE}" before evaluating the string and automatically
 # replacing the values.
-FINAL_STARTUP=$(echo "$STARTUP" | sed -e 's/{{/${/g' -e 's/}}/}/g')
+FINAL_STARTUP=$(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
 echo ":/home/container$ ${FINAL_STARTUP}"
 
 # Display the final startup command we're running in the output, and then execute it with eval
