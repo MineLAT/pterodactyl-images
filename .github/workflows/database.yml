@@ -44,3 +44,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/minelat/pterodactyl-images:database_${{ matrix.database }}
+          build-args: ${{ matrix.database == 'qdrant' && 'APP=/home/container' || '' }}
