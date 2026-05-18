@@ -5,8 +5,8 @@ LABEL       author="Softwarenoob" maintainer="admin@softwarenoob.com"
 LABEL       org.opencontainers.image.source="https://github.com/Software-Noob/pterodactyl-images"
 LABEL       org.opencontainers.image.licenses="MIT"
 
-RUN         yum upgrade -y \
-            && yum install -y curl ca-certificates openssl git tar sqlite fontconfig freetype libstdc++ freetype-devel lsof tzdata iproute \
+RUN         yum upgrade -y --allowerasing \
+            && yum install -y --allowerasing curl ca-certificates openssl git tar sqlite fontconfig freetype libstdc++ freetype-devel lsof tzdata iproute \
             gcc gcc-c++ automake make libtool \
             && yum clean all \
             && rm -rf /var/cache/yum \
